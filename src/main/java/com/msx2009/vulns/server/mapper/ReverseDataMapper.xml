@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.msx2009.vulns.server.mapper.ReverseDataMapper">
+<insert id="addData" parameterType="com.msx2009.vulns.server.model.ReverseData">
+insert into  ReverseData(port,client_ip,client_uuid) values (#{port},#{client_ip},#{client_uuid})
+</insert>
+
+<select id="getDataByUuidAndPort" parameterType="com.msx2009.vulns.server.model.ReverseData" resultType="int">
+	select count(*) from ReverseData where client_uuid = #{client_uuid} and port = #{port}
+</select>
+</mapper>
